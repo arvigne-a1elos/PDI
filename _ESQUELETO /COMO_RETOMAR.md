@@ -1,11 +1,11 @@
-# COMO RETOMAR — [NOME DO PROJETO]
+# COMO RETOMAR — [PDI]
 
 Copie o bloco abaixo e cole no início de qualquer sessão nova.
 Ele recupera o contexto em segundos, sem depender de memória de conversa.
 
 ---
 CONTEXTO [PDI] — [17/11/1926]
-Projeto: []
+Projeto: [PDI — Plataforma de Doações Incentivadas - Doações diretas para entidades filantrópicas, sociais, culturais e desportivas, com base em legislação vigente.]
 Tecnologias: [STACK]
 Fase: [Criação]
 Ambiente: [TESTE / PRODUÇÃO]
