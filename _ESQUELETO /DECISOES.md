@@ -21,7 +21,7 @@
 
 ## Decisões por data (mais recente primeiro)
 
-### [10/11/1926]
+### [17/11/1926]
 - [DECISÃO]
 - [JUSTIFICATIVA]
 - [ARQUIVOS AFETADOS]
