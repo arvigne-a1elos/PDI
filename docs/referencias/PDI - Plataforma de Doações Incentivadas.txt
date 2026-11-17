@@ -1,0 +1,196 @@
+PDI - Plataforma de Doações Incentivadas
+
+ATA FINAL DE ENCERRAMENTO DO PROJETO
+
+Consolidação Técnica, Jurídica e Comercial da Plataforma PDI
+
+11 de julho de 2026
+
+---
+
+### 1. SUMÁRIO EXECUTIVO DO PROJETO
+
+#### 1.1 Visão Geral
+A PDI — Plataforma de Doações Incentivadas é uma infraestrutura digital de governança e impacto social, projetada para atuar como o elo tecnológico entre doadores (Pessoas Físicas e Jurídicas) e projetos certificados por leis de incentivo fiscal no Brasil. O projeto fundamenta-se na premissa de que a tecnologia pode reduzir drasticamente o abismo entre o potencial de renúncia fiscal e a efetiva destinação desses recursos para o terceiro setor. A plataforma não realiza a gestão direta dos recursos, mas organiza, valida e dá transparência a mecanismos já previstos no ordenamento jurídico brasileiro.
+
+O desenvolvimento da PDI focou na criação de uma camada instrumental robusta, capaz de processar transações financeiras complexas sem os limites operacionais impostos pelas instituições bancárias tradicionais às entidades sem fins lucrativos. Através de um gateway de consolidação proprietário, a plataforma permite que as ONGs recebam múltiplos aportes via Pix e cartões de forma simultânea, consolidando-os em transferências diárias que simplificam a conciliação bancária e reduzem a carga tributária sobre as movimentações financeiras (IOF).
+
+A entrega final deste projeto contempla não apenas o código-fonte funcional, mas uma arquitetura de conformidade legal que garante a legitimidade de cada doação. A PDI posiciona-se como uma solução white label escalável, permitindo que grandes instituições personalizem a experiência do doador enquanto mantêm a segurança de um motor de cálculo fiscal auditável e atualizado conforme as normativas da Receita Federal do Brasil.
+
+#### 1.2 Problema Resolvido
+Atualmente, o Brasil aproveita menos de 3% do potencial estimado de R$ 900 bilhões em incentivos fiscais disponíveis. Este cenário de subutilização é provocado por barreiras operacionais críticas: as entidades do terceiro setor enfrentam limites diários de transações Pix (frequentemente restritos a 50 operações por dia), o que inviabiliza campanhas de arrecadação em massa. Além disso, a fragmentação das leis de incentivo gera insegurança jurídica tanto para o doador, que teme errar o cálculo da dedução, quanto para a entidade, que possui dificuldades na prestação de contas em tempo real.
+
+A burocracia tributária impõe custos invisíveis, como a incidência múltipla de IOF em pequenas transações e a necessidade de emissão manual de recibos e notas fiscais. A falta de uma interface centralizada impede que o doador visualize o impacto real de sua contribuição, resultando em uma baixa taxa de conversão de doadores potenciais em doadores efetivos. A PDI resolve essa fricção ao automatizar o fluxo de ponta a ponta, desde a simulação do imposto de renda até a emissão do recibo com validade jurídica.
+
+A ausência de transparência é outro fator limitante que a PDI mitiga. Através de dashboards auditáveis e perfis públicos certificados, a plataforma elimina a desconfiança do investidor social. Ao centralizar dados de certificações como OSCIP, Utilidade Pública e registros em conselhos municipais (CMDCA/COMAS), a PDI assegura que o recurso está sendo destinado a projetos com idoneidade comprovada e fiscalizada pelo Estado.
+
+#### 1.3 Solução Desenvolvida
+A solução entregue consiste em um ecossistema digital completo, composto por um backend de alta performance em Python/FastAPI e um frontend responsivo em React/TypeScript. O coração da plataforma é o Gateway de Consolidação, que permite o recebimento ilimitado de doações via Pix e cartões, superando as travas bancárias convencionais. Este sistema é integrado a um motor de cálculo fiscal que processa as regras de IRPF e IRPJ em tempo real, garantindo que o doador utilize o limite máximo permitido por lei sem risco de cair na malha fina.
+
+Para as entidades, foi desenvolvido um painel de gestão que oferece visibilidade total sobre as entradas de recursos, com ferramentas de automação para emissão de recibos com hash SHA256, garantindo a autenticidade do documento para fins de fiscalização. O sistema também inclui um módulo de compartilhamento social avançado, permitindo que cada projeto gere links dinâmicos e códigos de incorporação (embed) para disseminação em redes sociais e sites institucionais, ampliando o alcance das campanhas de captação.
+
+A experiência do usuário foi priorizada através de um modal de doação intuitivo que apresenta, lado a lado, os dados da entidade e do doador, reforçando a segurança jurídica através de termos de aceite explícitos. A arquitetura é totalmente conteinerizada via Docker, facilitando o deploy em qualquer infraestrutura de nuvem e garantindo a escalabilidade necessária para suportar picos de tráfego durante períodos de declaração de Imposto de Renda.
+
+### 2. BASE LEGAL CONSOLIDADA
+
+#### 2.1 Leis de Incentivo Fiscal Mapeadas
+A PDI foi estruturada sobre o arcabouço legal vigente, mapeando rigorosamente as principais leis de incentivo federais. A Lei Rouanet (Lei nº 8.313/1991) é o pilar para projetos culturais, permitindo deduções de até 6% do imposto devido para Pessoas Físicas e 4% para Pessoas Jurídicas tributadas pelo Lucro Real. A plataforma valida automaticamente se o projeto possui o número de homologação no Diário Oficial da União, requisito essencial para a validade do incentivo fiscal.
+
+No âmbito social e esportivo, a plataforma integra a Lei de Incentivo ao Esporte (Lei nº 11.438/2006), que permite 1% adicional de dedução, e as destinações aos Fundos dos Direitos da Criança e do Adolescente (ECA - Lei nº 8.069/1990) e do Idoso (Lei nº 10.741/2003). Cada uma dessas leis possui particularidades de teto e prazos que são codificadas no motor de regras da PDI, impedindo que o usuário realize doações acima do limite dedutível permitido para o exercício fiscal corrente.
+
+Adicionalmente, foram incluídos os programas PRONON e PRONAS (Lei nº 12.715/2012), voltados para oncologia e apoio à pessoa com deficiência. A fundamentação legal da PDI assegura que todas as transações respeitem o Art. 12 da Lei nº 9.250/1995, que disciplina as deduções do imposto de renda, garantindo que a plataforma atue estritamente como um facilitador de conformidade tributária, sem criar novas modalidades de renúncia fiscal não previstas em lei.
+
+#### 2.2 Regras Fiscais Implementadas
+O motor de cálculo da PDI implementa a Tabela Progressiva Anual do IRPF, considerando as cinco faixas de tributação (de 0% a 27,5%) e as respectivas parcelas a deduzir. O sistema realiza o cálculo do imposto devido com base na renda bruta informada, subtraindo deduções legais como dependentes (R$ 2.275,08/ano por dependente), gastos com instrução e previdência oficial. Esta precisão é vital para que o simulador informe ao doador exatamente quanto ele pode destinar sem desembolso financeiro real adicional.
+
+Para Pessoas Jurídicas, a regra aplicada é a do Lucro Real, conforme exigido pela legislação brasileira para fins de incentivo fiscal. O sistema calcula a alíquota base de 15% sobre o lucro tributável, somando o adicional de 10% sobre a parcela que exceder R$ 240.000,00 anuais. A PDI bloqueia automaticamente tentativas de simulação para empresas enquadradas no Simples Nacional ou Lucro Presumido, orientando o usuário sobre a impossibilidade legal de dedução nesses regimes, evitando erros de conformidade.
+
+A lógica de limites é aplicada de forma cumulativa e segregada: o limite global de 6% para doações diretas (Rouanet, FIA, Idoso) e os limites adicionais de 1% para Esporte e 1% para Saúde (PRONON/PRONAS), totalizando um potencial de até 8% de dedução para Pessoas Físicas. O descumprimento dessas regras por parte do usuário é mitigado por alertas em tempo real no momento da doação, informando que valores excedentes não serão dedutíveis, embora possam ser processados como doações simples sem incentivo fiscal.
+
+#### 2.3 Conformidade e Segurança Jurídica
+A segurança jurídica da PDI é reforçada pela implementação de protocolos de verificação de dados em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018). Cada transação gera um registro imutável que vincula o CPF/CNPJ do doador ao projeto beneficiado, com a guarda de logs de aceite dos termos de uso. Esta rastreabilidade é fundamental para atender a eventuais auditorias da Receita Federal ou órgãos de controle como o Tribunal de Contas da União (TCU).
+
+O sistema de emissão de recibos utiliza criptografia para gerar um hash SHA256 único para cada documento, impedindo a falsificação ou duplicidade de comprovantes de doação. Este mecanismo assegura que a entidade emita apenas o montante efetivamente recebido, evitando a prática de "venda de recibos". A plataforma também realiza o check de idoneidade das entidades através da exigência de certidões negativas de débitos tributários e trabalhistas, garantindo que o recurso público (via renúncia) seja destinado apenas a instituições regulares.
+
+Em casos de doações internacionais por subsidiárias brasileiras, a PDI aplica as regras de preços de transferência e conformidade cambial, assegurando que o aporte seja registrado como despesa operacional legítima no Brasil. A fundamentação jurídica estende-se ao Art. 13 da Lei nº 9.249/1995, que trata das doações de Pessoas Jurídicas a entidades civis, consolidando a PDI como uma ferramenta de compliance social de padrão internacional.
+
+### 3. ARQUITETURA TECNOLÓGICA
+
+#### 3.1 Backend (Python/FastAPI)
+O backend da PDI foi desenvolvido utilizando o framework FastAPI, escolhido por sua alta performance e suporte nativo a operações assíncronas, essenciais para o processamento de gateways de pagamento. A persistência de dados é realizada em um banco de dados PostgreSQL 15, estruturado através do SQLAlchemy 2.0. A arquitetura segue o padrão de separação de responsabilidades, com camadas distintas para modelos, esquemas de validação (Pydantic), serviços de lógica de negócio e rotas de API.
+
+O modelo de dados contempla seis entidades principais: User (gerenciamento de perfis e permissões), Organization (dados cadastrais e bancários das ONGs), TaxProgram (regras e leis de incentivo), Project (detalhamento dos projetos sociais), Donation (registro financeiro das transações) e Receipt (comprovantes fiscais). Esta estrutura permite uma rastreabilidade completa de cada centavo transacionado, desde a origem no doador até o destino final no projeto certificado.
+
+A segurança é garantida por um sistema de autenticação baseado em JWT (JSON Web Tokens) com criptografia de senhas via bcrypt. O backend expõe sete routers principais que cobrem todas as funcionalidades do ecossistema, incluindo um módulo de seed automático que popula o ambiente com dados de teste, permitindo simulações imediatas de fluxos de doação e cálculos fiscais complexos sem a necessidade de inserção manual de dados iniciais.
+
+#### 3.2 Frontend (React/TypeScript)
+O frontend foi construído com React 18 e TypeScript, utilizando o Vite como ferramenta de build para garantir tempos de carregamento otimizados. A interface é estilizada com Tailwind CSS, proporcionando um design responsivo que se adapta perfeitamente a dispositivos móveis e desktops. A comunicação com o backend é realizada através do Axios, com interceptores configurados para gerenciar automaticamente os tokens de autenticação e tratar erros de rede de forma amigável para o usuário.
+
+A aplicação conta com 12 páginas principais que cobrem toda a jornada do usuário, desde a Landing Page institucional até dashboards complexos de gestão para as entidades. O uso da biblioteca Recharts permite a visualização de dados financeiros e de impacto social através de gráficos dinâmicos, facilitando a interpretação de métricas como o ROI social e a evolução da arrecadação. Ícones da biblioteca Lucide React foram integrados para garantir uma identidade visual moderna e intuitiva.
+
+A arquitetura do frontend prioriza a componentização, com elementos reutilizáveis como o TaxSimulator e o DonationModal. Isso garante que a lógica de cálculo fiscal e as regras de aceite jurídico sejam consistentes em toda a plataforma. O sistema de roteamento utiliza o React Router, com proteções de rota que asseguram que apenas usuários autenticados e com as permissões adequadas acessem áreas sensíveis como as configurações de conta e o gerenciamento de projetos.
+
+#### 3.3 Infraestrutura e Deploy
+A infraestrutura da PDI é totalmente baseada em Docker, utilizando o Docker Compose para orquestrar os serviços de banco de dados, backend e frontend. Esta abordagem garante a paridade entre os ambientes de desenvolvimento, homologação e produção, eliminando o problema clássico de "funciona na minha máquina". O servidor web Nginx atua como proxy reverso, gerenciando o tráfego e servindo os arquivos estáticos do frontend com alta eficiência.
+
+O deploy foi planejado para suportar escalabilidade horizontal, permitindo que múltiplas instâncias do backend sejam executadas simultaneamente atrás de um balanceador de carga durante períodos de alta demanda, como o encerramento do ano fiscal. A configuração de variáveis de ambiente permite a troca rápida de chaves de API para gateways de pagamento e serviços de e-mail, garantindo a segurança das credenciais de produção.
+
+A manutenção do sistema é facilitada por logs centralizados e scripts de automação para backup do banco de dados. A arquitetura conteinerizada também simplifica a implementação de pipelines de CI/CD (Integração e Entrega Contínua), permitindo que novas funcionalidades e correções de segurança sejam publicadas de forma automatizada e sem downtime, assegurando a disponibilidade crítica necessária para uma plataforma financeira de impacto social.
+
+### 4. SERVIÇOS IMPLEMENTADOS
+
+#### 4.1 fiscal_simulator.py
+O serviço fiscal_simulator.py é o componente analítico central da PDI, responsável por traduzir a complexa legislação tributária brasileira em algoritmos de precisão matemática. Ele processa o cálculo do IRPF utilizando a lógica de faixas progressivas, aplicando corretamente as deduções por dependentes e as parcelas a deduzir de cada faixa. O simulador é capaz de identificar a alíquota efetiva do contribuinte, diferenciando-a da alíquota marginal, para fornecer uma visão clara do benefício fiscal real gerado pela doação.
+
+Para o IRPJ, o serviço valida o enquadramento no Lucro Real e calcula o imposto base e o adicional de 10%, respeitando os limites específicos de cada lei de incentivo. O algoritmo aplica as travas de 8% para Pessoas Físicas e 4% para Pessoas Jurídicas sobre o imposto devido, garantindo que a sugestão de doação nunca ultrapasse o teto de dedutibilidade. Em caso de violação desses limites por entrada manual do usuário, o serviço retorna um aviso detalhado sobre a parcela do valor que não será passível de incentivo fiscal.
+
+As consequências de falhas neste serviço seriam críticas, podendo levar o doador a erros em sua declaração de ajuste anual. Por isso, o código inclui testes unitários rigorosos que validam cenários extremos de renda e múltiplas doações. O resultado retornado pelo serviço inclui não apenas o valor sugerido, mas uma decomposição completa da economia de imposto, o custo real para o doador (que em muitos casos é zero) e o impacto social gerado, transformando dados áridos em argumentos persuasivos para o investimento social.
+
+#### 4.2 auth_service.py
+O auth_service.py gerencia a segurança de acesso e a integridade das sessões na plataforma. Ele utiliza a biblioteca Passlib com o algoritmo bcrypt para realizar o hashing de senhas, garantindo que credenciais nunca sejam armazenadas em texto plano. O serviço implementa funções de verificação que protegem o sistema contra ataques de força bruta, além de gerenciar a criação e decodificação de tokens JWT que carregam as permissões (scopes) de cada usuário, diferenciando doadores de gestores de ONGs.
+
+A lógica de autenticação é integrada ao middleware do FastAPI, exigindo tokens válidos para todas as rotas sensíveis. O serviço também lida com a expiração de tokens e a renovação de sessões, garantindo que o acesso permaneça seguro mesmo em dispositivos compartilhados. O descumprimento das regras de segurança neste módulo resultaria na exposição de dados sensíveis de doadores e entidades, o que é mitigado pelo uso de padrões de mercado e criptografia de ponta a ponta.
+
+Além da autenticação básica, o serviço está preparado para integração com provedores de identidade externos (OAuth2), permitindo o login social no futuro. A arquitetura do auth_service.py isola a lógica de identidade da lógica de negócio, facilitando auditorias de segurança e a implementação de políticas de senha complexas. Este módulo é a primeira linha de defesa da PDI, assegurando que a confiança depositada pelos usuários na plataforma seja sustentada por uma infraestrutura de segurança de nível bancário.
+
+#### 4.3 terms_service.py
+O serviço terms_service.py codifica as regras comerciais e as políticas de cancelamento da PDI, garantindo que a relação entre a plataforma e as entidades seja regida por termos claros e juridicamente válidos. Ele implementa a lógica do período de teste de 7 dias, diferenciando os cenários de reembolso com base na utilização efetiva do sistema. Se uma entidade cancelar dentro do trial sem ter processado doações, o sistema automatiza o reembolso integral; caso tenha havido movimentação financeira, o serviço aplica a taxa de R$ 29,90 para cobrir custos operacionais.
+
+Este módulo também é responsável por validar a aceitação dos termos de uso no momento do cadastro e em atualizações críticas da plataforma. Ele armazena o timestamp e a versão dos termos aceitos por cada usuário, criando uma trilha de auditoria essencial para a resolução de disputas. A Cláusula 5.2.2, que impede o reembolso após o 7º dia, é reforçada por este serviço, que bloqueia solicitações automáticas de estorno fora do prazo legal de arrependimento, mantendo a saúde financeira da operação.
+
+A racionalidade por trás deste serviço é equilibrar o direito do consumidor com a sustentabilidade do modelo SaaS. Ao descontar a taxa de serviço apenas quando houve doações, a PDI protege-se contra o uso oportunista da infraestrutura de pagamentos sem gerar ônus injusto para entidades que apenas testaram a interface. O descumprimento das regras aqui codificadas poderia gerar passivos jurídicos ou perdas financeiras, sendo este serviço o guardião das diretrizes comerciais estabelecidas na ata de encerramento.
+
+### 5. MÓDULOS DO FRONTEND
+
+#### 5.1 Pricing (Preços)
+O módulo de Pricing foi desenvolvido para apresentar de forma clara e persuasiva as opções de contratação da plataforma. Ele utiliza um grid responsivo que destaca os cinco planos disponíveis, desde o Essential até o Enterprise, com um destaque visual para o plano Pro, identificado como a escolha mais popular. O componente inclui um toggle que permite ao usuário alternar entre cobrança mensal e anual, exibindo automaticamente o badge de "2 meses grátis" para incentivar a fidelização através do pagamento via PIX.
+
+A integração com o checkout é direta e segura, oferecendo três modalidades de pagamento: PIX (com liberação imediata), Cartão de Crédito (com suporte a parcelamento) e Boleto Bancário. O design reforça a confiança do usuário ao exibir o selo de garantia de 7 dias e a política de teste gratuito. Cada card de plano detalha os limites de projetos e funcionalidades incluídas, garantindo que a entidade escolha a opção que melhor se adapta ao seu volume de captação atual.
+
+Para o plano Personalizado, o módulo direciona o usuário para um fluxo de contato específico, capturando o interesse de grandes instituições que necessitam de soluções white label. A interface foi otimizada para conversão, utilizando gatilhos mentais de escassez e prova social, além de garantir que todas as informações sobre taxas e prazos de liberação estejam visíveis antes da finalização da compra, reduzindo o abandono de carrinho e chamados de suporte.
+
+#### 5.2 Settings (Configurações)
+A página de Settings é o centro de controle da entidade dentro da PDI, organizada em três abas intuitivas. Na aba "Minha Assinatura", o gestor visualiza o status atual do seu plano, o tempo restante do período de teste e as opções de upgrade ou downgrade. Um banner dinâmico informa sobre a proximidade do fim do trial, incentivando a conversão antes da expiração do acesso. Esta área também permite a atualização dos dados de cobrança e do cartão de crédito cadastrado.
+
+A aba "Histórico de Pagamentos" oferece uma tabela detalhada de todas as faturas emitidas, com status de pagamento e links para download de notas fiscais e comprovantes. Já a aba "Cancelar Assinatura" foi projetada para ser transparente e justa: ela exibe as regras de reembolso de forma clara, calculando automaticamente se a entidade tem direito à devolução integral ou se haverá o desconto da taxa de R$ 29,90 devido a doações processadas. Este fluxo automatizado reduz a carga de trabalho do suporte ao cliente.
+
+O design desta seção prioriza a clareza e a facilidade de navegação, utilizando componentes de feedback visual para confirmar alterações de configuração. A segurança é reforçada por diálogos de confirmação em ações críticas, como o cancelamento da conta ou a alteração de dados bancários para recebimento de doações. O módulo de configurações é essencial para a retenção do cliente, oferecendo autonomia e transparência na gestão da relação comercial com a PDI.
+
+#### 5.3 Contact (Contato)
+O módulo de Contact serve como a principal porta de entrada para leads qualificados interessados em personalizações e planos de alto volume. O formulário foi estruturado para coletar dados essenciais como CNPJ, nome da entidade e cargo do solicitante, permitindo uma triagem eficiente pela equipe comercial. A validação em tempo real impede o envio de informações incompletas, enquanto o feedback de sucesso garante ao usuário que sua solicitação foi recebida e será processada em breve.
+
+A coluna lateral da página de contato atua como uma peça de marketing informativo, destacando os benefícios da versão white label, como a identidade visual exclusiva e o suporte prioritário. Ela também informa o tempo médio de implantação (15 a 30 dias), alinhando as expectativas do cliente desde o primeiro contato. Links diretos para WhatsApp e e-mail oferecem canais alternativos de comunicação, garantindo que o potencial cliente encontre a forma mais confortável de interagir com a equipe PDI.
+
+Este módulo é integrado ao serviço de alertas de upgrade, capturando o contexto do usuário (se ele já é cliente ou um novo visitante) para personalizar a abordagem comercial. A página de contato não é apenas um formulário, mas uma ferramenta de consultoria inicial que ajuda a entidade a identificar qual nível de personalização é necessário para seus objetivos de captação, transformando o suporte em uma oportunidade de venda consultiva.
+
+### 6. MODELO DE NEGÓCIO
+
+#### 6.1 Fontes de Receita
+O modelo de negócio da PDI é diversificado para garantir sustentabilidade e escalabilidade. A principal fonte de receita recorrente é a Assinatura SaaS, com planos que variam de R$ 97 a R$ 597 mensais, atendendo desde pequenas associações locais até grandes fundações nacionais. Este modelo permite uma previsão de caixa estável e cobre os custos de infraestrutura e manutenção contínua da plataforma. O incentivo ao plano anual via PIX otimiza o fluxo de caixa imediato e reduz a taxa de cancelamento (churn).
+
+Para entidades que optam por uma parceria mais profunda, a PDI oferece Contratos de Representação, onde a plataforma recebe uma porcentagem (20%) do valor líquido arrecadado através de suas ferramentas. Esta modalidade alinha os interesses da PDI aos da entidade: a plataforma só lucra se a ONG captar recursos com sucesso. Adicionalmente, uma taxa de processamento de 1% por transação cobre os custos operacionais dos gateways de pagamento e a emissão automatizada de documentos fiscais.
+
+Os Serviços Premium representam a camada de alto valor agregado, incluindo a personalização white label, consultoria para projetos de incentivo e antecipação de recebíveis de doações recorrentes. Estes serviços são precificados sob demanda ou através de taxas de setup significativas (a partir de R$ 8.700), permitindo que a PDI atue como uma parceira estratégica de tecnologia para o ecossistema do terceiro setor, e não apenas como um fornecedor de software.
+
+#### 6.2 Garantia e Política de Cancelamento
+A PDI adota uma política de garantia rigorosa e transparente, fundamentada no Art. 49 do Código de Defesa do Consumidor. Oferecemos um período de teste gratuito de 7 dias, durante o qual a entidade pode explorar todas as funcionalidades da plataforma. Se o cancelamento ocorrer neste prazo e nenhuma doação tiver sido processada, o reembolso é integral. Esta regra visa reduzir a barreira de entrada e permitir que a entidade valide a ferramenta sem risco financeiro inicial.
+
+Caso a entidade utilize a plataforma para processar doações durante o período de teste e decida cancelar, é retida uma taxa simbólica de R$ 29,90. Esta cobrança justifica-se pelos custos incorridos na abertura de contas digitais, validação de documentos e processamento financeiro já realizado. Após o 7º dia, o contrato entra em vigor pleno e não há previsão de reembolso para cancelamentos antecipados, embora o acesso às funcionalidades seja garantido até o final do período já pago (mês ou ano).
+
+Esta política é comunicada de forma ostensiva no momento da contratação e está codificada no terms_service.py. A racionalidade é proteger a operação contra o uso pontual da plataforma para grandes campanhas seguido de cancelamento imediato, prática que prejudicaria a viabilidade do negócio. O direito de arrependimento é limitado a uma única utilização por CNPJ, impedindo ciclos repetitivos de testes gratuitos pela mesma instituição.
+
+#### 6.3 Preços Base e Personalização
+A tabela de preços da PDI foi desenhada para ser competitiva e clara. O plano Essential (R$ 97/mês) foca em entidades iniciantes com apenas um projeto ativo. O plano Pro (R$ 197/mês) expande para três projetos e é o carro-chefe da plataforma. Para instituições de médio porte, o plano Max (R$ 347/mês) oferece suporte a dez projetos, enquanto o Enterprise (R$ 597/mês) remove os limites de projetos, sendo ideal para federações e redes de ONGs.
+
+A Personalização White Label é o nível mais alto de serviço, com setup inicial a partir de R$ 8.700 e mensalidade de R$ 897. Este plano transforma a PDI em uma ferramenta exclusiva da entidade, com domínio próprio, identidade visual customizada e integração total com os sistemas internos do cliente. Fatores como o segmento de atuação e o público-alvo orientam a criação de uma interface que gera maior identificação e confiança no doador final.
+
+A estratégia de precificação inclui gatilhos de upgrade automáticos. Quando uma entidade atinge marcos de sucesso, como R$ 50 mil arrecadados ou três meses de uso contínuo, o sistema sugere a migração para planos superiores ou para a versão personalizada. Esta abordagem de customer success garante que a PDI cresça junto com seus clientes, oferecendo sempre a infraestrutura adequada para cada estágio de maturidade da captação de recursos.
+
+### 7. PROJEÇÕES FINANCEIRAS E IMPACTO
+
+#### 7.1 Potencial de Mercado e Ganho Fiscal
+As projeções financeiras da PDI indicam um potencial de incremento na arrecadação via incentivos fiscais de aproximadamente R$ 17,2 bilhões anuais em todo o território nacional. Este aumento não decorre da criação de novos impostos, mas da otimização do uso das leis vigentes através da tecnologia. Estima-se que a União possa ver um acréscimo de R$ 7,4 bilhões em recursos destinados a projetos federais, enquanto Estados e Municípios ganhariam R$ 5,6 bi e R$ 4,2 bi, respectivamente, em investimentos sociais diretos em suas comunidades.
+
+Para a operação da PDI, o custo inicial de implantação e escala nacional é estimado entre R$ 2,3M e R$ 4,3M, cobrindo desenvolvimento, marketing jurídico e parcerias estratégicas. A receita projetada para os primeiros três anos de operação é de R$ 10M, baseada em uma taxa de conversão conservadora de 5% das entidades do terceiro setor registradas no Brasil. O ROI esperado é de 3x em 5 anos, tornando o projeto altamente atrativo para investidores de impacto e fundos de venture capital.
+
+O impacto social é mensurado pelo aumento da capacidade instalada das ONGs. Com mais recursos, estima-se que as entidades piloto possam expandir seus atendimentos em até 40% no primeiro ano de uso pleno da plataforma. A PDI atua como um multiplicador de impacto, onde cada real investido na plataforma se traduz em dezenas de reais destinados a causas como educação, saúde e cultura, fortalecendo a rede de proteção social brasileira sem onerar o orçamento público direto.
+
+### 8. ONGs PILOTO (WHITE LABEL)
+Para a fase de validação de mercado, foram selecionadas cinco instituições de grande relevância e diferentes segmentos. A Instituição Padre Cacique, focada no acolhimento de idosos, e a APAE, referência no atendimento a pessoas com deficiência, representam o setor de assistência social. A Basílica de Nossa Senhora Aparecida e os Arautos do Evangelho trazem o volume de doações de comunidades religiosas, enquanto a Afropay foca na inclusão financeira e projetos de equidade racial.
+
+Cada uma dessas entidades receberá uma versão personalizada da PDI, adaptada às suas necessidades específicas de comunicação e prestação de contas. O objetivo do piloto é testar a resiliência do gateway de pagamentos em cenários de alto volume e validar a eficácia do simulador fiscal em diferentes perfis de doadores. O sucesso destas implementações servirá como prova social definitiva para a expansão nacional da plataforma, demonstrando que a PDI é capaz de atender desde causas locais até grandes organizações nacionais.
+
+### 9. ROADMAP DE IMPLEMENTAÇÃO (150 DIAS)
+O cronograma de lançamento da PDI está dividido em cinco fases críticas de 30 dias cada. A Fase 1 foca na estruturação jurídica final e parcerias bancárias para o gateway. A Fase 2 dedica-se ao compliance rigoroso com a LGPD e testes de estresse na infraestrutura. Na Fase 3, o MVP (Produto Mínimo Viável) é lançado para um grupo restrito de usuários, validando o motor de cálculo fiscal e a interface de doação.
+
+A Fase 4 marca o início da operação com as 5 ONGs piloto, onde o suporte será intensivo para coletar feedbacks e realizar ajustes finos na experiência do usuário. Finalmente, a Fase 5 encerra o ciclo inicial com uma auditoria externa de segurança e processos, preparando a plataforma para a escala nacional e a abertura de rodadas de investimento. Este roadmap garante um crescimento sustentável, priorizando a segurança e a conformidade legal em cada etapa do desenvolvimento.
+
+### 10. DOCUMENTOS E ATIVOS GERADOS
+Ao final deste ciclo de desenvolvimento, a PDI entrega um conjunto robusto de ativos que garantem a continuidade do projeto. Além do código-fonte completo e documentado, foram gerados o PDF do Projeto (17 seções), a Apresentação para Investidores (12 slides) e uma Nota Técnica padrão TCU/Casa Civil para facilitar o diálogo com órgãos governamentais. O script de setup automatizado permite a recriação de todo o ambiente tecnológico em minutos, assegurando a portabilidade da solução.
+
+Os ativos jurídicos incluem os Termos de Uso, Políticas de Privacidade e o modelo de Contrato de Representação, todos revisados para máxima proteção da plataforma e dos usuários. O Executive Summary bilíngue prepara o projeto para captação de recursos em mercados internacionais. Este acervo documental constitui a propriedade intelectual da PDI, representando meses de pesquisa jurídica, técnica e de mercado consolidada em um formato pronto para execução comercial imediata.
+
+### 11. INVESTIDORES-ALVO
+A estratégia de captação de recursos para a PDI foca em dois perfis principais de investidores. No cenário nacional, buscamos parcerias com grandes instituições financeiras como Itaú, BTG Pactual e Banco Safra, que possuem forte atuação em ESG e interesse em modernizar o fluxo de doações de seus clientes de alta renda. A B3 e organizações como o GIFE e ABCR são parceiros estratégicos para validação institucional e acesso à rede de ONGs brasileiras.
+
+No cenário internacional, o alvo são fundos de Impact Investing e empresas de tecnologia financeira como Visa, Experian e Visma, que buscam soluções escaláveis para problemas sociais complexos. O interesse desses investidores reside na capacidade da PDI de transformar a renúncia fiscal em um mercado eficiente e transparente, gerando valor social e financeiro de forma equilibrada. A PDI apresenta-se como uma oportunidade de investimento em infraestrutura social digital com alto potencial de retorno e baixo risco regulatório.
+
+### 12. ENCERRAMENTO
+
+#### 12.1 Status do Projeto
+O projeto PDI encontra-se atualmente com sua fase de concepção, especificação técnica e desenvolvimento do núcleo tecnológico concluída com sucesso. Todos os módulos planejados — desde o simulador fiscal até o gateway de pagamentos e o sistema de alertas de upgrade — foram implementados, testados e documentados. A plataforma está pronta para transicionar do ambiente de desenvolvimento para o estágio de operação piloto, possuindo todos os requisitos necessários para uma entrada segura no mercado.
+
+#### 12.2 Próximos Passos Sugeridos
+Os passos imediatos recomendados incluem o deploy da aplicação em um ambiente de produção com certificado SSL de alta segurança e a formalização dos contratos com as cinco ONGs piloto. Sugere-se a abertura de uma rodada de investimento Seed para financiar a equipe de suporte e marketing jurídico necessária para a Fase 4 do roadmap. É imperativo também iniciar o processo de registro de marca e patentes de software junto ao INPI para proteger a propriedade intelectual gerada.
+
+#### 12.3 Agradecimentos e Considerações Finais
+Este documento encerra o ciclo de desenvolvimento conceitual e técnico da PDI, servindo como a Ata Final de Encerramento. Todo o conhecimento produzido, as decisões arquiteturais e as premissas jurídicas estão aqui registrados para garantir a continuidade e a integridade da visão original do projeto. A PDI nasce não apenas como um software, mas como uma nova forma de pensar a filantropia no Brasil, unindo eficiência tecnológica e compromisso social para fortalecer o terceiro setor.
+
+---
+
+          
+TONY / EQUIPE PDI                                                GESTOR DE PROJETO
+
+Local e data: Porto Alegre/RS, 11 de julho de 2026
+
+*Documento elaborado em 10 de julho de 2026. As informações contidas são de responsabilidade do solicitante.*

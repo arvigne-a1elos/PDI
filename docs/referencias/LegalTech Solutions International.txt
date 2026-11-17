@@ -1,0 +1,191 @@
+LegalTech Solutions International
+
+APP DE ARBITRAGEM INTERNACIONAL COM IA
+
+Documento Consolidado de Trilhas — Projeto Completo
+
+10 de julho de 2026
+
+---
+
+### SUMÁRIO
+
+1.  **APRESENTAÇÃO**
+2.  **TRILHA 1 — FUNDAMENTOS JURÍDICOS NACIONAIS E INTERNACIONAIS**
+    2.1 Direito Trabalhista Nacional
+    2.2 Direito Internacional Privado (DIPRI)
+    2.3 Direito Marítimo e Lei do Pavilhão
+    2.4 Equivalente Aéreo ("Lei do Hangar")
+    2.5 ODS 8 / OIT
+    2.6 Tratados e Ratificações
+3.  **TRILHA 2 — JORNADA DO USUÁRIO**
+    3.1 Upload Inteligente de Contrato
+    3.2 Análise Inicial com IA
+    3.3 Sessão de Conciliação
+    3.4 Mediação Assistida
+    3.5 Negociação Progressiva
+    3.6 Arbitragem Internacional
+    3.7 Homologação STJ
+4.  **TRILHA 3 — INTELIGÊNCIA ARTIFICIAL JURÍDICA**
+    4.1 NLP Jurídico Multilíngue
+    4.2 Detecção de Anomalias
+    4.3 Geração de Cláusulas Assertivas
+    4.4 Escalonamento Inteligente
+    4.5 Cálculo de Verbas Trabalhistas
+    4.6 Transcrição e Tradução Simultânea
+    4.7 Sugestão de Acordo Justo (Fair Deal)
+5.  **TRILHA 4 — ARQUITETURA TÉCNICA E SEGURANÇA**
+6.  **TRILHA 5 — SEGURANÇA JURÍDICA E COMPLIANCE**
+7.  **TRILHA 6 — MODELO DE NEGÓCIO E SUSTENTABILIDADE**
+8.  **TRILHA 7 — GO-TO-MARKET E PITCH**
+9.  **PRÓXIMOS PASSOS**
+
+---
+
+### 1. APRESENTAÇÃO
+
+Este documento consolida as 7 trilhas do projeto de desenvolvimento do APP de Arbitragem Internacional com Inteligência Artificial própria. O app tem como objetivo oferecer uma plataforma digital para mediação, conciliação, negociação e arbitragem internacional de conflitos trabalhistas marítimos e correlatos, com base nas normas da OIT, ODS 8 da ONU, CLT (Art. 507-A), Lei do Pavilhão (CTM Lei 186/2024) e tratados internacionais de arbitragem.
+
+Os pilares do projeto sustentam-se na definição de propósito claro, arquitetura tecnológica escalável, infraestrutura em nuvem, governança ética e legal, interoperabilidade jurídica internacional, cultura e acessibilidade. A solução visa reduzir o gargalo do Judiciário e oferecer celeridade a conflitos de alta complexidade jurisdicional.
+
+### 2. TRILHA 1 — FUNDAMENTOS JURÍDICOS NACIONAIS E INTERNACIONAIS
+
+A base normativa que sustenta o ecossistema do aplicativo é composta por um arcabouço híbrido entre o direito doméstico e o direito internacional público e privado.
+
+#### 2.1 Direito Trabalhista Nacional
+A aplicação da arbitragem no âmbito trabalhista brasileiro observa o Art. 507-A da CLT, que permite a cláusula compromissória em contratos cuja remuneração seja superior a duas vezes o limite máximo dos benefícios do RGPS. O projeto respeita a competência da Justiça do Trabalho (Art. 114 da CF/88) e a Lei 9.307/96, garantindo que direitos indisponíveis (salário mínimo, FGTS, normas de segurança) não sejam objeto de renúncia, utilizando sempre o princípio da norma mais favorável ao trabalhador.
+
+#### 2.2 Direito Internacional Privado (DIPRI)
+O sistema utiliza as regras da LINDB (Arts. 7º ao 12) para determinar a lei aplicável e o foro competente. A Convenção de Nova York (1958) é o pilar para o reconhecimento e execução de sentenças arbitrais estrangeiras, integrada às diretrizes das Conferências Interamericanas de DIPRI (CIDIP), assegurando que o acordo gerado no app tenha validade transfronteiriça.
+
+#### 2.3 Direito Marítimo e Lei do Pavilhão
+Com a vigência do CTM (Lei 186/2024) e do Decreto 10.671/2021, o app automatiza a análise da "Bandeira de Conveniência". Embora o Tribunal do Pavilhão seja o foro primário segundo a UNCLOS, a IA do sistema está programada para relativizar essa competência em favor da lei mais protetiva ao trabalhador marítimo quando houver conflito normativo evidente.
+
+#### 2.4 Equivalente Aéreo ("Lei do Hangar")
+O projeto estende a lógica da Lei do Pavilhão para a aviação civil, observando a Convenção de Chicago (OACI) e o Código Brasileiro de Aeronáutica. O foco reside na resolução de conflitos de tripulações internacionais que operam em múltiplas jurisdições sob contratos complexos.
+
+#### 2.5 ODS 8 / OIT
+O app é uma ferramenta de promoção do Objetivo de Desenvolvimento Sustentável 8 da ONU. O motor de regras integra as convenções fundamentais da OIT, incluindo a C29 e C105 (Trabalho Forçado), C87 e C98 (Liberdade Sindical e Negociação), C100 e C111 (Igualdade e Não Discriminação), além das C138 e C182 (Proteção à Criança).
+
+#### 2.6 Tratados e Ratificações
+O controle de convencionalidade é exercido com base no Art. 5º §§ 2º e 3º da CF. O sistema monitora o Decreto 7.030/2009 (CADH) e todos os tratados da OIT ratificados pelo Brasil, garantindo que nenhuma proposta de acordo viole o status supralegal de direitos humanos.
+
+### 3. TRILHA 2 — JORNADA DO USUÁRIO
+
+#### 3.1 Upload Inteligente de Contrato
+O usuário inicia o fluxo através de uma interface drag-and-drop. A IA realiza a extração de entidades (NER) para identificar empresa, trabalhador, cargo e remuneração, preenchendo automaticamente os formulários de qualificação das partes.
+
+#### 3.2 Análise Inicial com IA
+O sistema executa um screening imediato para detectar cláusulas abusivas. Utiliza um sistema de color coding: Amarelo para alertas de risco e Vermelho para violações diretas de normas da OIT ou CLT.
+
+#### 3.3 Sessão de Conciliação
+Ambiente virtual com transcrição e tradução simultânea. A IA atua como facilitadora, gerando minutas em tempo real conforme os pontos de convergência são identificados entre as partes.
+
+#### 3.4 Mediação Assistida
+O módulo Fair Deal sugere valores de acordo baseados em cálculos automáticos de verbas rescisórias e indenizatórias, permitindo o "handshake virtual" após a aceitação mútua dos termos.
+
+#### 3.5 Negociação Progressiva
+Caso não haja consenso, o sistema aplica um score de complexidade e sugere automaticamente o escalonamento para arbitragem, evitando a estagnação do conflito.
+
+#### 3.6 Arbitragem Internacional
+Instituição de tribunal arbitral virtual. A sentença arbitral gerada possui força de título executivo judicial, dispensando homologação prévia para execução no Brasil, conforme a Lei 9.307/96.
+
+#### 3.7 Homologação STJ
+Para sentenças estrangeiras, o app prepara o dossiê completo, calcula custas e integra-se ao sistema e-STJ para o processo de homologação de sentença estrangeira.
+
+### 4. TRILHA 3 — INTELIGÊNCIA ARTIFICIAL JURÍDICA
+
+#### 4.1 NLP Jurídico Multilíngue
+Utilização de modelos Legal-BERT treinados em 4 idiomas (PT, EN, ES, FR) para compreensão profunda de terminologia técnica e nuances jurisdicionais.
+
+#### 4.2 Detecção de Anomalias
+Classificador treinado em base de precedentes para identificar desvios contratuais e fraudes à lei do pavilhão.
+
+#### 4.3 Geração de Cláusulas Assertivas
+LLM fine-tuned que redige cláusulas de compromisso e termos de acordo com precisão jurídica, minimizando riscos de nulidade futura.
+
+#### 4.4 Escalonamento Inteligente
+Algoritmo de árvore de decisão que avalia a probabilidade de êxito em cada fase (conciliação vs. arbitragem) com base no comportamento das partes e valores envolvidos.
+
+#### 4.5 Cálculo de Verbas Trabalhistas
+Motor de cálculo parametrizado que processa salários, horas extras e multas com conversão cambial em tempo real e atualização monetária automática.
+
+#### 4.6 Transcrição e Tradução Simultânea
+Integração com Whisper (OpenAI) para registro fidedigno de audiências, gerando atas com timestamp e validade probatória.
+
+#### 4.7 Sugestão de Acordo Justo (Fair Deal)
+Modelo preditivo que analisa a capacidade financeira da empresa e a jurisprudência consolidada para propor o valor ótimo de encerramento do litígio.
+
+### 5. TRILHA 4 — ARQUITETURA TÉCNICA E SEGURANÇA
+
+
+
+
+Componente
+Tecnologia / Especificação
+
+
+
+
+Frontend
+React Native (Mobile) e React (Web)
+
+
+Backend
+Node.js com arquitetura de microsserviços
+
+
+Bancos de Dados
+PostgreSQL, Redis e MongoDB
+
+
+Infraestrutura IA
+FastAPI (Python) em containers Docker
+
+
+Cloud Storage
+AWS S3 / Azure Blob com criptografia AES-256
+
+
+Segurança
+MFA, OTP e Senha Conjunta (Joint-Password)
+
+
+Compliance
+LGPD e GDPR com DPO integrado
+
+
+
+
+### 6. TRILHA 5 — SEGURANÇA JURÍDICA E COMPLIANCE
+
+O projeto assegura validade jurídica plena através de assinaturas digitais padrão ICP-Brasil e integração com DocuSign/ZapSign para o mercado internacional. A custódia de documentos é protegida por criptografia de chave dupla, exigindo a anuência de ambas as partes para acesso ao dossiê sigiloso.
+
+As sessões são registradas com hash blockchain para garantir a imutabilidade das provas. O app opera em estrita conformidade com o Estatuto da OAB e busca credenciamento junto às principais câmaras arbitrais (CCI, CAMES, CBMA, FGV), contando ainda com seguro de responsabilidade civil profissional.
+
+### 7. TRILHA 6 — MODELO DE NEGÓCIO E SUSTENTABILIDADE
+
+#### 7.1 Tabela de Preços (Estimativa 2026)
+- **Consulta Jurídica IA:** `R$ 300,00`
+- **Análise Contratual:** `R$ 1.200,00`
+- **Acordo Extrajudicial:** `R$ 2.500,00`
+- **Arbitragem (Fase):** `R$ 5.000,00 a R$ 15.000,00`
+- **Homologação Judicial:** `R$ 3.000,00`
+
+#### 7.2 Investimento e ROI
+O investimento inicial estimado varia entre R$ 270.000,00 e R$ 575.000,00, cobrindo desenvolvimento, segurança, LGPD e registros legais. Com custos operacionais mensais de aproximadamente R$ 20.000,00, o payback é esperado entre 12 e 18 meses, com um ROI projetado de até 600% em três anos de operação.
+
+### 8. TRILHA 7 — GO-TO-MARKET E PITCH
+
+A estratégia de lançamento foca em escritórios de advocacia tier-1, sindicatos marítimos e departamentos jurídicos de multinacionais de óleo e gás. O roadmap de desenvolvimento prevê o MVP em 4 meses, com foco em upload e conciliação assistida, evoluindo para a plataforma completa de arbitragem internacional em até 12 meses.
+
+### 9. PRÓXIMOS PASSOS
+
+1.  Finalização do protótipo de alta fidelidade (UI/UX).
+2.  Rodada de captação Seed com base no Pitch Deck consolidado.
+3.  Contratação da equipe core de desenvolvimento (Squad IA e Backend).
+4.  Protocolo de registros na OAB e Câmaras Arbitrais parceiras.
+
+---
+
+Documento elaborado em 10 de julho de 2026. As informações contidas são de responsabilidade do solicitante.

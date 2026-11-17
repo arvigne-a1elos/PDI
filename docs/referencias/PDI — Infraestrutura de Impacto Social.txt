@@ -1,0 +1,174 @@
+PDI — Infraestrutura de Impacto Social
+
+PDI - PLATAFORMA DE DOAÇÕES INCENTIVADAS
+
+Documento Completo do Projeto | Versão 2.0 — Julho/2026
+
+10 de julho de 2026
+
+---
+
+### 1. VISÃO GERAL DO PROJETO
+
+A Plataforma de Doações Incentivadas (PDI) surge para solucionar a fragmentação e a subutilização dos mecanismos de renúncia fiscal no Brasil. Atualmente, menos de 3% do potencial de doações via Imposto de Renda é aproveitado por entidades do terceiro setor, devido à complexidade burocrática e à falta de ferramentas tecnológicas que conectem doadores e projetos certificados de forma transparente.
+
+A solução proposta é uma infraestrutura digital de governança que organiza o fluxo de doações, automatiza o cálculo de benefícios fiscais e garante a conformidade legal em tempo real. O projeto foca em três públicos-chave: Entidades do Terceiro Setor, que ganham escala na captação; Doadores (PF e PJ), que otimizam sua carga tributária com impacto social; e Órgãos de Controle, que passam a ter visibilidade total sobre a destinação dos recursos públicos incentivados.
+
+### 2. BASE LEGAL CONSOLIDADA
+
+A PDI opera estritamente sob a égide da legislação federal vigente, integrando os principais mecanismos de incentivo fiscal do ordenamento jurídico brasileiro:
+
+*   Lei Rouanet (Lei nº 8.313/1991): Dedução de até 6% do IRPF e 4% do IRPJ para projetos culturais aprovados pelo Ministério da Cultura.
+*   Lei de Incentivo ao Esporte (Lei nº 11.438/2006): Dedução de até 1% adicional do IR devido para projetos desportivos e paradesportivos.
+*   ECA/FIA (Lei nº 8.069/1990, Art. 260): Destinação de até 6% do IRPF e 1% do IRPJ para os Fundos dos Direitos da Criança e do Adolescente.
+*   Estatuto do Idoso (Lei nº 10.741/2003): Dedução de até 6% do IRPF e 1% do IRPJ para o Fundo Nacional do Idoso.
+*   PRONON/PRONAS (Lei nº 12.715/2012): Incentivos para ações de oncologia e apoio à pessoa com deficiência (até 1% cada).
+
+O sistema incorpora a Tabela Progressiva do IRPF 2024/2025 para cálculos de base de cálculo e imposto devido, respeitando os limites combinados de até 8% para pessoas físicas e 4% da receita operacional bruta para pessoas jurídicas tributadas pelo Lucro Real.
+
+### 3. MODELO DE NEGÓCIO
+
+A sustentabilidade financeira da PDI é estruturada em um modelo híbrido que equilibra acessibilidade para pequenas ONGs e robustez para grandes instituições:
+
+1.  Contratos de Representação: Taxa de sucesso de 20% sobre o valor líquido arrecadado para entidades com gestão de captação exclusiva.
+2.  Assinatura SaaS: Planos mensais variando de `R$ 100,00` (até 1 projeto) a `R$ 200,00` (projetos ilimitados).
+3.  Taxa de Processamento: 1% sobre cada transação processada via gateway próprio para cobertura de custos operacionais.
+4.  Serviços Premium: Customização white-label, consultoria para aprovação de projetos e relatórios avançados de impacto social.
+
+### 4. ARQUITETURA TECNOLÓGICA
+
+A plataforma utiliza uma stack moderna focada em segurança de dados e alta disponibilidade:
+
+*   Backend: Desenvolvido em Python 3.12 com framework FastAPI, garantindo performance assíncrona. Banco de dados relacional PostgreSQL 15 para integridade transacional.
+*   Modelagem de Dados: Entidades estruturadas em User (com níveis de acesso: doador, org_admin, admin), Organization, TaxProgram, Project, Donation e Receipt.
+*   Frontend: Interface SPA construída com React, TypeScript e Vite, utilizando Tailwind CSS para design responsivo e acessível.
+*   Infraestrutura: Orquestração via Docker Compose, facilitando o deploy em ambientes de nuvem escaláveis.
+
+### 5. SIMULADOR FISCAL (DETALHADO)
+
+O motor de cálculo da PDI é o diferencial técnico do projeto, realizando operações complexas em milissegundos:
+
+*   IRPF: Aplicação da tabela progressiva anual sobre o rendimento tributável, subtraindo deduções legais (INSS, dependentes a `R$ 2.275,08/ano`, educação e saúde). O sistema calcula o "Imposto Devido" e aplica o teto de 6% para doações diretas, podendo chegar a 8% com incentivos específicos.
+*   IRPJ: Verificação obrigatória do regime de Lucro Real. Cálculo da alíquota base de 15% mais o adicional de 10% sobre o lucro excedente a `R$ 240.000,00/ano`.
+*   Custo Efetivo: A plataforma demonstra ao doador que o valor destinado é integralmente deduzido do imposto que ele já pagaria ao governo, resultando em custo zero para o cidadão ou empresa.
+
+### 6. GATEWAY DE PAGAMENTOS
+
+Integração nativa com múltiplos provedores para garantir a menor taxa e a maior conversão:
+
+*   Stripe: Utilização de PaymentIntents para processamento seguro de cartões de crédito e débito internacionais e nacionais.
+*   PagSeguro: Geração dinâmica de Pix com código EMV BR (padrão BACEN) para liquidação instantânea.
+*   Boleto: Emissão de boletos registrados com registro em tempo real.
+*   Segurança: Webhooks protegidos por verificação HMAC para confirmação automática de recebíveis e emissão imediata de recibos.
+
+### 7. MODAL DE DOAÇÃO COM ACEITE
+
+Para garantir a segurança jurídica, o fluxo de doação apresenta os dados de forma transparente em duas colunas:
+
+*   Esquerda (Entidade): Exibição de Razão Social, CNPJ, Dados Bancários, Número da Lei Federal aplicável e Certificações ativas.
+*   Direita (Doador): Campos para CPF/CNPJ, Nome Completo e Valor, com cálculo dinâmico do benefício fiscal visível.
+*   Termo de Aceite: Checkbox obrigatório onde o doador declara ciência da destinação do recurso, veracidade dos dados e conformidade com as normas da Receita Federal.
+
+### 8. PERFIL PÚBLICO DA ENTIDADE
+
+Cada organização possui uma página otimizada para transparência, contendo uma ficha de informações pronta para impressão. Estão listados todos os dados bancários, números de processos de aprovação governamental (Ex: Pronon nº 25000.XXXX) e o status de certificações como OSCIP e Utilidade Pública. O progresso dos projetos é exibido em tempo real, incentivando o engajamento da comunidade.
+
+### 9. COMPARTILHAMENTO E ENGAJAMENTO
+
+A plataforma integra ferramentas de viralização social para reduzir o custo de aquisição de doadores. Inclui botões nativos para WhatsApp, Facebook, LinkedIn e Twitter/X, além de gerar um código embed (iframe) para que a entidade possa inserir o formulário de doação diretamente em seu site oficial.
+
+### 10. EMPRESAS INTERNACIONAIS
+
+A PDI inova ao permitir que matrizes internacionais contribuam através de suas subsidiárias brasileiras. O sistema valida se a filial opera sob o regime de Lucro Real e gera um recibo fiscal onde a subsidiária figura como doadora legal (para fins de dedução no Brasil), enquanto a matriz é registrada como a origem global dos recursos, garantindo conformidade com políticas de compliance internacional.
+
+### 11. FLUXO DE DOAÇÃO COMPLETO
+
+1.  Cadastro: A entidade insere dados legais e bancários.
+2.  Projeto: Vinculação de um projeto aprovado a um programa fiscal específico.
+3.  Simulação: O doador utiliza a ferramenta para descobrir seu potencial de doação.
+4.  Doação: Preenchimento dos dados com aceite dos termos legais.
+5.  Liquidação: Processamento via gateway e confirmação via webhook.
+6.  Recibo: Geração automática de recibo com hash SHA256 para declaração do IR.
+7.  Impacto: O doador recebe atualizações sobre o uso do recurso e compartilha sua ação.
+
+### 12. PROJEÇÕES FINANCEIRAS
+
+A implementação da PDI visa elevar a eficiência da captação nacional:
+
+
+
+
+Esfera
+Arrecadação Atual (Estimada)
+Projeção com PDI
+Incremento
+
+
+
+
+União
+R$ 12,0 bilhões
+R$ 19,4 bilhões
++ R$ 7,4 bi
+
+
+Estados
+R$ 8,0 bilhões
+R$ 13,6 bilhões
++ R$ 5,6 bi
+
+
+Municípios
+R$ 4,0 bilhões
+R$ 8,2 bilhões
++ R$ 4,2 bi
+
+
+Total
+R$ 24,0 bilhões
+R$ 41,2 bilhões
++ R$ 17,2 bi
+
+
+
+
+### 13. ROADMAP DE IMPLEMENTAÇÃO
+
+*   Fase 1 (30 dias): Consolidação jurídica e registros de marca/patente.
+*   Fase 2 (60 dias): Desenvolvimento do core tecnológico e integrações bancárias.
+*   Fase 3 (90 dias): Lançamento do MVP e testes de estresse.
+*   Fase 4 (120 dias): Projeto Piloto com 5 ONGs selecionadas.
+*   Fase 5 (150 dias): Expansão nacional e abertura para novas entidades.
+
+### 14. PITCH DECK (ROTEIRO EXECUTIVO)
+
+O roteiro de apresentação foca na dor do mercado (subutilização de recursos) e na escalabilidade da solução tecnológica. Destaca-se a segurança jurídica e a facilidade de uso como os principais motores para a adoção em massa por empresas do Lucro Real e cidadãos que declaram pelo modelo completo.
+
+### 15. EXECUTIVE SUMMARY
+
+PT: A PDI é uma plataforma de infraestrutura para o terceiro setor que automatiza doações incentivadas, garantindo transparência e conformidade legal para aumentar a captação de recursos via renúncia fiscal no Brasil.
+
+EN: PDI is an infrastructure platform for the non-profit sector that automates incentivized donations, ensuring transparency and legal compliance to increase fundraising through tax incentives in Brazil.
+
+### 16. ONGs PILOTO WHITE LABEL
+
+As seguintes instituições foram selecionadas para a fase piloto, recebendo interfaces personalizadas:
+
+*   Padre Cacique: Foco em assistência ao idoso.
+*   Basílica de Aparecida: Projetos socioculturais e de preservação.
+*   Arautos do Evangelho: Educação e formação de jovens.
+*   Afropay: Inclusão financeira e empreendedorismo negro.
+*   APAE: Saúde e educação para pessoas com deficiência.
+
+### 17. NOTA TÉCNICA TCU/CASA CIVIL
+
+Este documento serve como base técnica para demonstrar que a PDI não promove renúncia de receita adicional, mas sim a eficiência na aplicação de recursos já previstos no orçamento da União, estados e municípios, em total consonância com a Lei de Responsabilidade Fiscal e os princípios da administração pública.
+
+---
+
+Local e data: Brasília, 10 de julho de 2026
+
+
+COORDENAÇÃO DO PROJETO PDI
+
+*Documento elaborado em 10 de julho de 2026. As informações contidas são de responsabilidade do solicitante.*

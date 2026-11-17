@@ -1,0 +1,179 @@
+PDI — SISTEMAS DE IMPACTO SOCIAL
+
+PDI - PLATAFORMA DE DOAÇÕES INCENTIVADAS
+
+Documento Completo de Concepção, Análise e Desenvolvimento
+
+10 de julho de 2026
+
+---
+
+### 1. VISÃO GERAL DO PROJETO
+
+#### 1.1 Problema Central
+O ecossistema de doações com incentivo fiscal no Brasil é fragmentado e subutilizado. Menos de 3% do potencial (estimado em R$ 900 bilhões) é aproveitado. As Organizações Não Governamentais (ONGs) enfrentam barreiras operacionais críticas que impedem a escala da captação, tais como o limite diário de transações via Pix (aproximadamente 50 transações por conta), a ausência de gateways consolidados, burocracia tributária excessiva com incidência de IOF múltiplo e a dificuldade crônica em conectar doadores a projetos devidamente certificados.
+
+#### 1.2 Solução Proposta
+A PDI é uma plataforma digital de infraestrutura, governança e impacto que conecta doadores (pessoas físicas e jurídicas) a projetos sociais certificados por leis de incentivo fiscal. A plataforma atua como uma camada instrumental: ela não arrecada, não gere e não decide sobre os recursos, mas organiza e provê transparência absoluta a mecanismos já previstos na legislação brasileira, automatizando o fluxo desde a simulação fiscal até a emissão do recibo de dedução.
+
+#### 1.3 Públicos-Chave
+- **Doadores Pessoa Física:** Contribuintes que utilizam a declaração completa do IRPF.
+- **Doadores Pessoa Jurídica:** Empresas tributadas pelo regime de Lucro Real.
+- **Instituições do Terceiro Setor:** ONGs, OSCIPs e Fundações com projetos aprovados.
+- **Governos e Conselhos:** Órgãos reguladores (CMDCA, COMAS, Ministérios) que buscam transparência na destinação de renúncia fiscal.
+
+---
+
+### 2. BASE LEGAL CONSOLIDADA
+
+#### 2.1 Leis de Incentivo Fiscal
+A PDI opera estritamente dentro da legalidade vigente, fundamentada nos seguintes dispositivos:
+
+- **Constituição Federal (arts. 23, 24, 37, 174, 204):** Base para o incentivo ao terceiro setor.
+- **Lei Rouanet (Lei 8.313/1991):** Até **6% do IR devido** para projetos culturais.
+- **Lei de Incentivo ao Esporte (Lei 11.438/2006):** Até **1% adicional** do IR devido.
+- **ECA (Lei 8.069/1990) — FIA:** Até **6% do IR devido** para fundos da criança e adolescente.
+- **Estatuto do Idoso (Lei 10.741/2003):** Até **6% do IR devido** para fundos do idoso.
+- **PRONON/PRONAS (Lei 12.715/2012):** Até **1% cada** para saúde oncológica e PcD.
+
+#### 2.2 Tetos de Dedução e Tabela Progressiva
+Para Pessoa Física, o teto global compartilhado (Cultura, FIA, Idoso) é de 6%, podendo chegar a 9% com os incentivos adicionais específicos. Para Pessoa Jurídica (Lucro Real), o teto é de 4% do IR devido.
+
+
+
+
+Base de Cálculo Mensal (R$)
+Alíquota (%)
+Parcela a Deduzir (R$)
+
+
+
+
+Até 2.259,20
+Isento
+0,00
+
+
+De 2.259,21 até 2.826,65
+7,5%
+169,44
+
+
+De 2.826,66 até 3.751,05
+15,0%
+381,44
+
+
+De 3.751,06 até 4.664,68
+22,5%
+662,77
+
+
+Acima de 4.664,68
+27,5%
+896,00
+
+
+
+
+---
+
+### 3. MODELO DE NEGÓCIO
+
+#### 3.1 Fontes de Receita
+- **Contratos de Representação:** 20% do valor líquido arrecadado para entidades com exclusividade.
+- **Assinatura SaaS:** Planos escalonáveis de **R$ 100,00** a **R$ 200,00/mês** conforme o número de projetos.
+- **Taxa de Processamento:** 1% por transação processada no gateway proprietário.
+- **Serviços Premium:** Customização white label, antecipação de recebíveis e automação de mídia.
+
+#### 3.2 Diferenciais Estratégicos
+A plataforma diferencia-se pela sua natureza instrumental, o que mitiga riscos fiscais e jurídicos. A automação completa de notas fiscais e recibos, aliada a um dashboard de transparência radical, permite que a entidade foque na execução do projeto enquanto a PDI gerencia a conformidade e a interface com o doador.
+
+---
+
+### 4. ARQUITETURA TECNOLÓGICA
+
+#### 4.1 Backend e Modelagem de Dados
+Desenvolvido em FastAPI (Python 3.12) com PostgreSQL 15. A modelagem inclui entidades para usuários (PF/PJ/Instituição), organizações certificadas, programas fiscais com seus respectivos limites parametrizados, projetos com metas financeiras e um sistema de recibos com integridade garantida por hash SHA256.
+
+#### 4.2 Frontend e Experiência do Usuário
+Interface construída em React 18 com Tailwind CSS. Inclui um simulador fiscal interativo que utiliza gráficos da biblioteca Recharts para demonstrar visualmente o abatimento do imposto, além de uma vitrine de projetos filtrável por ODS (Objetivos de Desenvolvimento Sustentável) e localização geográfica.
+
+#### 4.3 Gateway de Pagamentos e Segurança
+Integração via Stripe e PagSeguro para processamento de cartões e Pix. A segurança é reforçada por webhooks com verificação HMAC e conformidade total com a LGPD (Lei 13.709/2018).
+
+---
+
+### 5. ESTRUTURA DE GOVERNANÇA E IMPACTO
+
+#### 5.1 Termo de Responsabilidade
+Todas as entidades parceiras aderem a um termo rigoroso que exige finalidade lícita, prestação de contas periódica e submissão a auditorias. É vedado qualquer vínculo com atividades político-partidárias ou organizações ilícitas.
+
+#### 5.2 Projeção de Impacto Financeiro
+Estima-se que a organização do fluxo de doações possa gerar um incremento de R$ 17,2 bilhões anuais em recursos para o terceiro setor, sem a necessidade de criação de novos impostos ou alteração de alíquotas existentes.
+
+
+
+
+Ente Federativo
+Atual (R$ bi)
+Projeção PDI (R$ bi)
+Ganho Absoluto
+
+
+
+
+União
+12,0
+19,4
++7,4 bi
+
+
+Estados
+8,0
+13,6
++5,6 bi
+
+
+Municípios
+4,0
+8,2
++4,2 bi
+
+
+Total
+24,0
+41,2
++17,2 bi
+
+
+
+
+---
+
+### 6. ROADMAP DE IMPLEMENTAÇÃO
+
+1. **Fase 1 (0-30 dias):** Estrutura jurídica, validação de CNPJs e parcerias bancárias.
+2. **Fase 2 (30-60 dias):** Setup tecnológico, gateway de consolidação e conformidade LGPD.
+3. **Fase 3 (60-90 dias):** Lançamento do MVP com simulador fiscal e dashboard básico.
+4. **Fase 4 (90-120 dias):** Projeto Piloto com 5 ONGs (Padre Cacique, Basílica, Arautos, Afropay, APAE).
+5. **Fase 5 (120-150 dias):** Auditoria externa e expansão nacional.
+
+---
+
+### 7. FUNDAÇÃO INTERNACIONAL DE IMPACTO SOCIAL (FIIS)
+
+Como braço de governança global, a FIIS supervisiona a integridade da plataforma e promove o Prêmio FIIS, reconhecido como o "Nobel Social Privado". O prêmio celebra projetos de excelência técnica e impacto comprovado, utilizando critérios de avaliação rigorosos e votação popular auditada.
+
+
+"A PDI não é apenas uma ferramenta de arrecadação, mas um ecossistema de confiança que transforma a renúncia fiscal em progresso social tangível."
+
+
+---
+
+          
+DIRETORIA EXECUTIVA                                                CONSELHO DE GOVERNANÇA
+
+Local e data: Brasília, 10 de julho de 2026
+
+*Documento elaborado em 10 de julho de 2026. As informações contidas são de responsabilidade do solicitante.*
